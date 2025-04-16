@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Photo Edits
   const photoEdits = [
-    'images/photo1.jpg',
+    'photoshop/car.jpg',
     'images/photo2.jpg',
     'images/photo3.jpg',
     'images/photo4.jpg'
