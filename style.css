@@ -44,7 +44,8 @@ video, img {
 
 /* Thumbnails */
 .thumbnail {
-  width: 300px;
+  width: 200px;
+  height: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -62,6 +63,12 @@ video, img {
 .social-icons img:hover,
 .software-icons img:hover {
   transform: scale(1.2);
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 /* Fade-in animation */
@@ -86,8 +93,8 @@ footer {
 }
 
 /* Modal for Images & Renders */
-#photoModal, #renderModal {
-  display: none;
+.modal {
+  display: flex;
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -99,20 +106,16 @@ footer {
   justify-content: center;
   align-items: center;
 }
-#photoModal .modal-content,
-#renderModal .modal-content {
-  background: transparent;
-  padding: 0;
+.modal-content {
   position: relative;
 }
-#photoModal .modal-content img,
-#renderModal .modal-content img {
+.modal-content video,
+.modal-content img {
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 10px;
 }
-#photoModal .close-button,
-#renderModal .close-button {
+.close {
   position: absolute;
   top: -30px;
   right: 0;
