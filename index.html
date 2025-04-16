@@ -47,7 +47,7 @@
   <section class="software fade-in">
     <h2>Software I Use</h2>
     <div class="software-icons">
-      <img src="assets/Adobe_After_Effects_CC_icon.svg.png" alt="After Effects">
+      <img src="assets/aftereffects.png" alt="After Effects">
       <img src="assets/premierepro.png" alt="Premiere Pro">
       <img src="assets/photoshop.png" alt="Photoshop">
       <img src="assets/blender.png" alt="Blender">
@@ -57,7 +57,53 @@
   <footer>
     <p>Editing is an art.</p>
   </footer>
+<!-- Software Section -->
+<section id="software">
+  <h2 style="text-align:center; color: white; font-size: 2em; margin-top: 50px;">Software I Use</h2>
+  <div class="software-icons">
+    <img src="assets/icons/Adobe_After_Effects_CC_icon.svg.png" alt="After Effects" class="icon" />
+    <!-- Add more icons like this: -->
+    <!-- <img src="assets/icons/Premiere_Pro_Icon.png" alt="Premiere Pro" class="icon" /> -->
+    <!-- <img src="assets/icons/Photoshop_Icon.png" alt="Photoshop" class="icon" /> -->
+    <!-- <img src="assets/icons/Blender_Icon.png" alt="Blender" class="icon" /> -->
+  </div>
+</section>
 
+<!-- Icon Styling -->
+<style>
+  .software-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 50px;
+  }
+
+  .icon {
+    width: 60px;
+    height: auto;
+    margin: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    animation: fadeInPop 0.8s ease forwards;
+  }
+
+  .icon:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes fadeInPop {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
   <script src="script.js"></script>
 </body>
 </html>
