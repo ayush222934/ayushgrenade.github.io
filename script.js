@@ -68,7 +68,7 @@ photoEdits.forEach(photo => {
 
  // Blender Renders
 const blenderRenders = [
-  { src: 'assets/blender/render1.jpg', alt: 'Render 1' },
+  { src: 'assets/blender/0008.png', alt: '0008 1' },
   { src: 'assets/blender/render2.jpg', alt: 'Render 2' },
   { src: 'assets/blender/render3.jpg', alt: 'Render 3' },
   { src: 'assets/blender/render4.jpg', alt: 'Render 4' }
