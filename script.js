@@ -36,21 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Photo Edits
-  const photoEdits = [
-    'photoshop/car.jpg',
-    'images/photo2.jpg',
-    'images/photo3.jpg',
-    'images/photo4.jpg'
-  ];
+const photoEdits = [
+  { src: 'assets/photoshop/car.jpg', alt: 'Car Edit' },
+  { src: 'assets/photo/photo2.jpg', alt: 'Edit 2' },
+  { src: 'assets/photo/photo3.jpg', alt: 'Edit 3' },
+  { src: 'assets/photo/photo4.jpg', alt: 'Edit 4' }
+];
 
-  const photoEditsGrid = document.getElementById('photoEdits');
-  photoEdits.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = 'Photo Edit';
-    img.className = 'thumbnail';
-
-    img.addEventListener('click', () => {
+const photoContainer = document.getElementById('photoEdits');
+photoEdits.forEach(photo => {
+  const img = document.createElement('img');
+  img.src = photo.src;
+  img.alt = photo.alt;
+  photoContainer.appendChild(img);
+});
+  img.addEventListener('click', () => {
       const modal = document.createElement('div');
       modal.className = 'modal';
       modal.innerHTML = `
@@ -66,22 +66,22 @@ document.addEventListener('DOMContentLoaded', () => {
     photoEditsGrid.appendChild(img);
   });
 
-  // Blender Renders
-  const blenderRenders = [
-    'blender/0008.png',
-    'images/render2.jpg',
-    'images/render3.jpg',
-    'images/render4.jpg'
-  ];
+ // Blender Renders
+const blenderRenders = [
+  { src: 'assets/blender/render1.jpg', alt: 'Render 1' },
+  { src: 'assets/blender/render2.jpg', alt: 'Render 2' },
+  { src: 'assets/blender/render3.jpg', alt: 'Render 3' },
+  { src: 'assets/blender/render4.jpg', alt: 'Render 4' }
+];
 
-  const blenderGrid = document.getElementById('blenderRenders');
-  blenderRenders.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = 'Blender Render';
-    img.className = 'thumbnail';
-
-    img.addEventListener('click', () => {
+const renderContainer = document.getElementById('blenderRenders');
+blenderRenders.forEach(render => {
+  const img = document.createElement('img');
+  img.src = render.src;
+  img.alt = render.alt;
+  renderContainer.appendChild(img);
+});
+img.addEventListener('click', () => {
       const modal = document.createElement('div');
       modal.className = 'modal';
       modal.innerHTML = `
