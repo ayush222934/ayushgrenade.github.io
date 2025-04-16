@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
       document.body.appendChild(modal);
+
       modal.querySelector('.close').onclick = () => modal.remove();
     });
 
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = document.createElement('img');
     img.src = photo.src;
     img.alt = photo.alt;
-    img.className = 'fade-in';
+    img.className = 'thumbnail';
 
     img.addEventListener('click', () => {
       const modal = document.createElement('div');
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Blender Renders
   const blenderRenders = [
-    { src: 'assets/blender/0008.png', alt: 'Render 1' },
+    { src: 'assets/blender/0008.png', alt: '0008 1' },
     { src: 'assets/blender/render2.jpg', alt: 'Render 2' },
     { src: 'assets/blender/render3.jpg', alt: 'Render 3' },
     { src: 'assets/blender/render4.jpg', alt: 'Render 4' }
@@ -78,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = document.createElement('img');
     img.src = render.src;
     img.alt = render.alt;
-    img.className = 'fade-in';
+    img.className = 'thumbnail';
 
     img.addEventListener('click', () => {
       const modal = document.createElement('div');
