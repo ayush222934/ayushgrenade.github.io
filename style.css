@@ -44,7 +44,7 @@ video, img {
 
 /* Thumbnails */
 .thumbnail {
-  width: 200px;
+  width: 100px;
   height: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -67,7 +67,7 @@ video, img {
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 1rem;
 }
 
