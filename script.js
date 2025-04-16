@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
       document.body.appendChild(modal);
-
       modal.querySelector('.close').onclick = () => modal.remove();
     });
 
@@ -36,64 +35,64 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Photo Edits
-const photoEdits = [
-  { src: 'assets/photoshop/car.jpg', alt: 'Car Edit' },
-  { src: 'assets/photo/photo2.jpg', alt: 'Edit 2' },
-  { src: 'assets/photo/photo3.jpg', alt: 'Edit 3' },
-  { src: 'assets/photo/photo4.jpg', alt: 'Edit 4' }
-];
+  const photoEdits = [
+    { src: 'assets/photoshop/car.jpg', alt: 'Car Edit' },
+    { src: 'assets/photo/photo2.jpg', alt: 'Edit 2' },
+    { src: 'assets/photo/photo3.jpg', alt: 'Edit 3' },
+    { src: 'assets/photo/photo4.jpg', alt: 'Edit 4' }
+  ];
 
-const photoContainer = document.getElementById('photoEdits');
-photoEdits.forEach(photo => {
-  const img = document.createElement('img');
-  img.src = photo.src;
-  img.alt = photo.alt;
-  photoContainer.appendChild(img);
-});
-  img.addEventListener('click', () => {
+  const photoContainer = document.getElementById('photoEdits');
+  photoEdits.forEach(photo => {
+    const img = document.createElement('img');
+    img.src = photo.src;
+    img.alt = photo.alt;
+    img.className = 'fade-in';
+
+    img.addEventListener('click', () => {
       const modal = document.createElement('div');
       modal.className = 'modal';
       modal.innerHTML = `
         <div class="modal-content">
           <span class="close">&times;</span>
-          <img src="${src}" />
+          <img src="${photo.src}" />
         </div>
       `;
       document.body.appendChild(modal);
       modal.querySelector('.close').onclick = () => modal.remove();
     });
 
-    photoEditsGrid.appendChild(img);
+    photoContainer.appendChild(img);
   });
 
- // Blender Renders
-const blenderRenders = [
-  { src: 'assets/blender/0008.png', alt: '0008 1' },
-  { src: 'assets/blender/render2.jpg', alt: 'Render 2' },
-  { src: 'assets/blender/render3.jpg', alt: 'Render 3' },
-  { src: 'assets/blender/render4.jpg', alt: 'Render 4' }
-];
+  // Blender Renders
+  const blenderRenders = [
+    { src: 'assets/blender/0008.png', alt: 'Render 1' },
+    { src: 'assets/blender/render2.jpg', alt: 'Render 2' },
+    { src: 'assets/blender/render3.jpg', alt: 'Render 3' },
+    { src: 'assets/blender/render4.jpg', alt: 'Render 4' }
+  ];
 
-const renderContainer = document.getElementById('blenderRenders');
-blenderRenders.forEach(render => {
-  const img = document.createElement('img');
-  img.src = render.src;
-  img.alt = render.alt;
-  renderContainer.appendChild(img);
-});
-img.addEventListener('click', () => {
+  const renderContainer = document.getElementById('blenderRenders');
+  blenderRenders.forEach(render => {
+    const img = document.createElement('img');
+    img.src = render.src;
+    img.alt = render.alt;
+    img.className = 'fade-in';
+
+    img.addEventListener('click', () => {
       const modal = document.createElement('div');
       modal.className = 'modal';
       modal.innerHTML = `
         <div class="modal-content">
           <span class="close">&times;</span>
-          <img src="${src}" />
+          <img src="${render.src}" />
         </div>
       `;
       document.body.appendChild(modal);
       modal.querySelector('.close').onclick = () => modal.remove();
     });
 
-    blenderGrid.appendChild(img);
+    renderContainer.appendChild(img);
   });
 });
