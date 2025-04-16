@@ -1,31 +1,38 @@
+// Array of showcase video thumbnails and videos
+const videos = [
+  { thumb: 'assets/thumbnails/video1.jpg', src: 'assets/videos/video1.mp4' },
+  { thumb: 'assets/thumbnails/video2.jpg', src: 'assets/videos/video2.mp4' },
+  { thumb: 'assets/thumbnails/video3.jpg', src: 'assets/videos/video3.mp4' },
+  { thumb: 'assets/thumbnails/video4.jpg', src: 'assets/videos/video4.mp4' }
+];
 
-window.onload = function () {
-  const videoGrid = document.getElementById("videoGrid");
-  const photoEdits = document.getElementById("photoEdits");
-  const blenderRenders = document.getElementById("blenderRenders");
+const videoGrid = document.getElementById('videoGrid');
 
-  const videos = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"];
-  videos.forEach((v) => {
-    const vid = document.createElement("video");
-    vid.src = "videos/" + v;
-    vid.controls = true;
-    vid.className = "fade-in";
-    videoGrid.appendChild(vid);
-  });
+// Create modal for video preview
+const videoModal = document.createElement('div');
+videoModal.id = 'videoModal';
+videoModal.innerHTML = `
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <video id="modalVideo" controls></video>
+  </div>
+`;
+document.body.appendChild(videoModal);
 
-  const photos = ["edit1.jpg", "edit2.jpg", "edit3.jpg"];
-  photos.forEach((p) => {
-    const img = document.createElement("img");
-    img.src = "images/photo-edits/" + p;
-    img.className = "fade-in";
-    photoEdits.appendChild(img);
-  });
+// Inject thumbnails
+videos.forEach(video => {
+  const thumbEl = document.createElement('img');
+  thumbEl.src = video.thumb;
+  thumbEl.className = 'video-thumb';
+  thumbEl.onclick = () => {
+    document.getElementById('modalVideo').src = video.src;
+    videoModal.style.display = 'flex';
+  };
+  videoGrid.appendChild(thumbEl);
+});
 
-  const renders = ["render1.jpg", "render2.jpg"];
-  renders.forEach((r) => {
-    const img = document.createElement("img");
-    img.src = "images/blender-renders/" + r;
-    img.className = "fade-in";
-    blenderRenders.appendChild(img);
-  });
+// Close modal
+document.querySelector('.close-button').onclick = () => {
+  document.getElementById('modalVideo').pause();
+  videoModal.style.display = 'none';
 };
