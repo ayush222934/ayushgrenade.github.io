@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Blender Renders
   const blenderRenders = [
-    'images/render1.jpg',
+    'blender/0008.png',
     'images/render2.jpg',
     'images/render3.jpg',
     'images/render4.jpg'
