@@ -29,7 +29,9 @@ header h1 {
   position: relative;
   z-index: 1;
   font-size: 3rem;
-  color: #9f7fff;
+  color: #1e3a8a; /* Dark blue */
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(30, 58, 138, 0.5);
 }
 
 /* Sections */
@@ -83,7 +85,7 @@ img {
 .software-icons {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;  /* increased spacing */
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 .social-icons img,
