@@ -1,3 +1,4 @@
+/* General Reset */
 body {
   margin: 0;
   background-color: #0a0a0a;
@@ -6,25 +7,29 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Banner */
-.top-banner {
-  height: 300px;
-  background-image: url('assets/banners/a-2d-style-illustration-of-a-serene-nigh_pdx-w1i2RgeyGXqP6q9ctg_OaxjvF0XTbmLRXn-we03GQ.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.6;
-}
-
-/* Header */
+/* Header with Banner */
 header {
+  position: relative;
   text-align: center;
-  padding: 2rem;
-  background: #000;
+  padding: 4rem 2rem;
+  background-color: #000;
+  overflow: hidden;
 }
-
-h1 {
+.header-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/banners/a-2d-style-illustration-of-a-serene-nigh_pdx-w1i2RgeyGXqP6q9ctg_OaxjvF0XTbmLRXn-we03GQ.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.6;
+  z-index: 0;
+}
+header h1 {
+  position: relative;
+  z-index: 1;
   font-size: 3rem;
-  color: #000;
+  color: #9f7fff;
 }
 
 /* Sections */
@@ -38,12 +43,17 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* Grid Styles */
-video, img {
+/* Videos and Images */
+video,
+img {
   max-width: 100%;
   border-radius: 10px;
 }
-.video-grid, .img-grid, .software-icons {
+
+/* Grid Layouts */
+.video-grid,
+.img-grid,
+.software-icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -51,20 +61,43 @@ video, img {
   margin-top: 1rem;
 }
 
-/* Icons */
-.software-icons img,
-.social-icons img {
+/* Thumbnails */
+.thumbnail {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Image Grid Specific Sizing */
+.img-grid img {
+  width: 250px;
+  height: auto;
+}
+
+/* Social & Software Icons */
+.social-icons,
+.software-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;  /* increased spacing */
+  margin-top: 1rem;
+}
+.social-icons img,
+.software-icons img {
   height: 50px;
   width: 50px;
-  margin: 0 15px;
   transition: transform 0.3s;
 }
-.software-icons img:hover,
-.social-icons img:hover {
+.social-icons img:hover,
+.software-icons img:hover {
   transform: scale(1.2);
 }
 
-/* Animation */
+/* Fade‑in Animation */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -82,5 +115,35 @@ footer {
   background-color: #111;
   padding: 1rem;
   text-align: center;
-  color: #666;
+  color: #666;
+}
+
+/* Modal for Images & Renders */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  position: relative;
+}
+.modal-content video,
+.modal-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+}
+.close,
+.close-button {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
