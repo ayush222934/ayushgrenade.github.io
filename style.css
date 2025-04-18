@@ -1,84 +1,149 @@
-/* Reset & Base */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* General Reset */
 body {
-  background-color: #0c0e1a;
-  color: #fff;
+  margin: 0;
+  background-color: #0a0a0a;
+  color: #f0f0f0;
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
 }
 
-section {
-  padding: 30px 10%;
+/* Header with Banner */
+header {
+  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #000;
+  overflow: hidden;
+}
+.header-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/banners/a-2d-style-illustration-of-a-serene-nigh_pdx-w1i2RgeyGXqP6q9ctg_OaxjvF0XTbmLRXn-we03GQ.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.6;
+  z-index: 0;
+}
+header h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  color: #9f7fff;
 }
 
-h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #a259ff;
+/* Sections */
+section {
+  padding: 2rem;
   text-align: center;
 }
+h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 
-/* Grids */
-.video-grid, .img-grid, .software-icons, .social-icons {
+/* Videos and Images */
+video,
+img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Grid Layouts */
+.video-grid,
+.img-grid,
+.software-icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-/* Thumbnails & Icons */
-.thumbnail, .icon {
-  width: 250px;
-  border-radius: 8px;
+/* Thumbnails */
+.thumbnail {
+  width: 200px;
+  height: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.thumbnail:hover, .icon:hover {
+.thumbnail:hover {
   transform: scale(1.05);
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background: #111;
-  color: #999;
+/* Image Grid Specific Sizing */
+.img-grid img {
+  width: 250px;
+  height: auto;
+}
+
+/* Social & Software Icons */
+.social-icons,
+.software-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;  /* increased spacing */
+  margin-top: 1rem;
+}
+.social-icons img,
+.software-icons img {
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s;
+}
+.social-icons img:hover,
+.software-icons img:hover {
+  transform: scale(1.2);
 }
 
 /* Fade‑in Animation */
 .fade-in {
-  animation: fadeIn 1s ease-in;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1.2s ease forwards;
 }
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Modal */
+/* Footer */
+footer {
+  background-color: #111;
+  padding: 1rem;
+  text-align: center;
+  color: #666;
+}
+
+/* Modal for Images & Renders */
 .modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.85);
   display: flex;
-  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
   justify-content: center;
-  z-index: 1000;
+  align-items: center;
 }
 .modal-content {
   position: relative;
-  max-width: 90%; max-height: 90%;
 }
 .modal-content video,
 .modal-content img {
-  width: 100%; height: auto; border-radius: 8px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
 }
-.close {
+.close,
+.close-button {
   position: absolute;
-  top: -20px; right: -20px;
-  background: #fff; color: #000;
-  width: 30px; height: 30px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 50%; font-size: 24px;
-  cursor: pointer;
+  top: -30px;
+  right: 0;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
