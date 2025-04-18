@@ -66,5 +66,31 @@
   </footer>
 
   <script src="script.js"></script>
+ <!-- Security Protection Script -->
+<script>
+  // Disable Right-Click
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
+
+  // Disable Common DevTool Keys
+  document.addEventListener("keydown", function (e) {
+    // F12
+    if (e.keyCode === 123) {
+      e.preventDefault();
+      return false;
+    }
+    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) {
+      e.preventDefault();
+      return false;
+    }
+    // Ctrl+U
+    if (e.ctrlKey && e.key === "u") {
+      e.preventDefault();
+      return false;
+    }
+  });
+</script> 
 </body>
 </html>
