@@ -66,31 +66,43 @@
   </footer>
 
   <script src="script.js"></script>
- <!-- Security Protection Script -->
+<!-- Security Protection Script -->
 <script>
-  // Disable Right-Click
-  document.addEventListener("contextmenu", function (e) {
+  // Disable Right Click
+  document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
   });
 
-  // Disable Common DevTool Keys
-  document.addEventListener("keydown", function (e) {
+  // Disable DevTools & Common Shortcut Keys
+  document.addEventListener("keydown", function(e) {
     // F12
     if (e.keyCode === 123) {
       e.preventDefault();
       return false;
     }
-    // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+
+    // Ctrl+Shift+I/J/C
     if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) {
       e.preventDefault();
       return false;
     }
-    // Ctrl+U
-    if (e.ctrlKey && e.key === "u") {
+
+    // Ctrl+U, Ctrl+S, Ctrl+P
+    if (e.ctrlKey && (e.key === "u" || e.key === "s" || e.key === "p")) {
       e.preventDefault();
       return false;
     }
-  });
-</script> 
+  });
+
+  // Trap DevTools via debugger delay
+  setInterval(function() {
+    const start = new Date().getTime();
+    debugger;
+    const end = new Date().getTime();
+    if (end - start > 200) {
+      window.location.href = "about:blank";
+    }
+  }, 1000);
+</script>
 </body>
 </html>
