@@ -88,5 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.querySelector('.close').onclick = () => modal.remove();
     });
     renderContainer.appendChild(img);
-  });
+  });
 });
