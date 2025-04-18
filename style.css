@@ -147,3 +147,7 @@ footer {
   color: white;
   cursor: pointer;
 }
+/* Disable Text Selection */
+* {
+  user-select: none;
+}
