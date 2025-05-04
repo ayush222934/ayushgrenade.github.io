@@ -1,84 +1,98 @@
-// ========== TUMHARA EXISTING CODE (script (1).js) ==========
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      } else {
-        entry.target.classList.remove("show");
-      }
+document.addEventListener('DOMContentLoaded', () => {
+  // Showcase Videos
+  const showcaseVideos = [
+    { src: 'videos/showcase1.mp4', thumbnail: 'thumbnails/showcase1.jpg' },
+    { src: 'videos/showcase2.mp4', thumbnail: 'thumbnails/showcase2.jpg' },
+    { src: 'videos/showcase3.mp4', thumbnail: 'thumbnails/showcase3.jpg' },
+    { src: 'videos/showcase4.mp4', thumbnail: 'thumbnails/showcase4.jpg' },
+  ];
+
+  const videoGrid = document.getElementById('videoGrid');
+  showcaseVideos.forEach(video => {
+    const videoCard = document.createElement('div');
+    videoCard.className = 'video-card';
+
+    const thumb = document.createElement('img');
+    thumb.src = video.thumbnail;
+    thumb.alt = 'Video Thumbnail';
+    thumb.className = 'thumbnail';
+
+    thumb.addEventListener('click', () => {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <video src="${video.src}" controls autoplay></video>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      modal.querySelector('.close').onclick = () => modal.remove();
     });
+
+    videoCard.appendChild(thumb);
+    videoGrid.appendChild(videoCard);
   });
 
-  const hiddenElements = document.querySelectorAll(".hidden");
-  hiddenElements.forEach((el) => observer.observe(el));
-});
+  // Photo Edits
+  const photoEdits = [
+    { src: 'assets/photoshop/car.jpg', alt: 'Car Edit' },
+    { src: 'assets/photoshop/a-dramatic-automotive-poster-showcasing-_K-hXrdUsRQq8-gxxWAdnRA_mqG6TMBrRm-OR8pZldKBbQ.png', alt: 'Edit 2' },
+    { src: 'assets/photoshop/IMG_7500.PNG', alt: 'Edit 3' },
+    { src: 'assets/photoshop/Artboard 1.png', alt: 'Edit 4' }
+  ];
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let interval = null;
+  const photoContainer = document.getElementById('photoEdits');
+  photoEdits.forEach(photo => {
+    const img = document.createElement('img');
+    img.src = photo.src;
+    img.alt = photo.alt;
+    img.className = 'thumbnail';
 
-document.querySelectorAll(".glitch").forEach((element) => {
-  element.addEventListener("mouseover", () => {
-    let iteration = 0;
-    clearInterval(interval);
+    img.addEventListener('click', () => {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="${photo.src}" />
+        </div>
+      `;
+      document.body.appendChild(modal);
+      modal.querySelector('.close').onclick = () => modal.remove();
+    });
 
-    interval = setInterval(() => {
-      element.innerText = element.innerText
-        .split("")
-        .map((letter, index) => {
-          if (index < iteration) {
-            return element.dataset.value[index];
-          }
-
-          return letters[Math.floor(Math.random() * 26)];
-        })
-        .join("");
-
-      if (iteration >= element.dataset.value.length) {
-        clearInterval(interval);
-      }
-
-      iteration += 1 / 3;
-    }, 30);
+    photoContainer.appendChild(img);
   });
-});
 
-// ========== NEW CODE (scroll, autoplay, hover) ==========
+  // Blender Renders
+  const blenderRenders = [
+    { src: 'assets/blender/0008.png', alt: '0008 1' },
+    { src: 'assets/blender/render2.jpg', alt: 'Render 2' },
+    { src: 'assets/blender/render3.jpg', alt: 'Render 3' },
+    { src: 'assets/blender/render4.jpg', alt: 'Render 4' }
+  ];
 
-// Smooth Scroll for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
+  const renderContainer = document.getElementById('blenderRenders');
+  blenderRenders.forEach(render => {
+    const img = document.createElement('img');
+    img.src = render.src;
+    img.alt = render.alt;
+    img.className = 'thumbnail';
 
-// Auto Play/Pause Videos When in View
-const autoPlayVideos = document.querySelectorAll('video[autoplay]');
-const options = {
-  threshold: 0.6
-};
+    img.addEventListener('click', () => {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img src="${render.src}" />
+        </div>
+      `;
+      document.body.appendChild(modal);
+      modal.querySelector('.close').onclick = () => modal.remove();
+    });
 
-const videoObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.play();
-    } else {
-      entry.target.pause();
-    }
-  });
-}, options);
-
-autoPlayVideos.forEach(video => {
-  videoObserver.observe(video);
-});
-
-// Hover Log on Artwork Images
-document.querySelectorAll('.artworks img').forEach(img => {
-  img.addEventListener('mouseenter', () => {
-    console.log(`Hovering on: ${img.alt}`);
+    renderContainer.appendChild(img);
   });
 });
