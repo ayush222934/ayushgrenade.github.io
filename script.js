@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
       document.body.appendChild(modal);
-
       modal.querySelector('.close').onclick = () => modal.remove();
     });
 
@@ -95,5 +94,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderContainer.appendChild(img);
-  });
+  });
 });
