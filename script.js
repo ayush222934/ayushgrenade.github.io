@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Blender Renders
-  const blenderRenders = [
+  const 3dartworks = [
     { src: 'assets/blender/0008.png', alt: '0008 1' },
     { src: 'assets/blender/render2.jpg', alt: 'Render 2' },
     { src: 'assets/blender/render3.jpg', alt: 'Render 3' },
