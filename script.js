@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Photo Edits
   const photoEdits = [
     { src: 'assets/photoshop/car.jpg', alt: 'Car Edit' },
-    { src: 'assets/photoshop/a-dramatic-automotive-poster-showcasing-_K-hXrdUsRQq8-gxxWAdnRA_mqG6TMBrRm-OR8pZldKBbQ.png' },
-    { src: 'assets/photoshop/IMG_7500.PNG' },
-    { src: 'assets/photo/photo4.jpg', alt: 'Edit 4' }
+    { src: 'assets/photoshop/a-dramatic-automotive-poster-showcasing-_K-hXrdUsRQq8-gxxWAdnRA_mqG6TMBrRm-OR8pZldKBbQ.png', alt: 'Edit 2' },
+    { src: 'assets/photoshop/IMG_7500.PNG', alt: 'Edit 3' },
+    { src: 'assets/photoshop/penguin.pdf', alt: 'Edit 4' }
   ];
 
   const photoContainer = document.getElementById('photoEdits');
