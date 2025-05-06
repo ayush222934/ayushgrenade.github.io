@@ -69,43 +69,63 @@
   </footer>
 
   <script src="script.js"></script>
-<!-- Security Protection Script -->
+<!-- Full Security Protection Script -->
 <script>
-  // Disable Right Click
-  document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
-  });
-
-  // Disable DevTools & Common Shortcut Keys
-  document.addEventListener("keydown", function(e) {
-    // F12
-    if (e.keyCode === 123) {
+  (function () {
+    // Disable Right Click
+    document.addEventListener("contextmenu", function (e) {
       e.preventDefault();
-      return false;
-    }
+    });
 
-    // Ctrl+Shift+I/J/C
-    if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) {
-      e.preventDefault();
-      return false;
-    }
+    // Disable Selection, Copy, Drag
+    document.addEventListener("selectstart", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
+    document.addEventListener("copy", e => e.preventDefault());
 
-    // Ctrl+U, Ctrl+S, Ctrl+P
-    if (e.ctrlKey && (e.key === "u" || e.key === "s" || e.key === "p")) {
-      e.preventDefault();
-      return false;
-    }
-  });
+    // Disable Key Shortcuts
+    document.addEventListener("keydown", function (e) {
+      const key = e.key.toLowerCase();
+      const forbiddenKeys = ["i", "j", "c", "u", "s", "p"];
 
-  // Trap DevTools via debugger delay
-  setInterval(function() {
-    const start = new Date().getTime();
-    debugger;
-    const end = new Date().getTime();
-    if (end - start > 200) {
-      window.location.href = "about:blank";
-    }
-  }, 1000);
+      // F12
+      if (e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+      }
+
+      // Ctrl+Shift+Key
+      if (e.ctrlKey && e.shiftKey && forbiddenKeys.includes(key)) {
+        e.preventDefault();
+        return false;
+      }
+
+      // Ctrl+Key (like Ctrl+U, Ctrl+S)
+      if (e.ctrlKey && forbiddenKeys.includes(key)) {
+        e.preventDefault();
+        return false;
+      }
+
+      // MetaKey for Mac (⌘ Command key)
+      if (e.metaKey && forbiddenKeys.includes(key)) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Advanced DevTools Trap with debugger
+    const detectDevTools = () => {
+      const start = new Date().getTime();
+      debugger;
+      const end = new Date().getTime();
+      if (end - start > 200) {
+        window.location.href = "about:blank";
+      }
+    };
+
+    // Run debugger trap on random intervals
+    setInterval(detectDevTools, Math.floor(Math.random() * 3000) + 2000);
+  })();
 </script>
+
 </body>
 </html>
